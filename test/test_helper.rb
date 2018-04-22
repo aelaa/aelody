@@ -3,7 +3,5 @@ require_relative '../config/environment'
 require "minitest/autorun"
 
 class ActiveSupport::TestCase
-  fixtures :all
-
-  # Add more helper methods to be used by all tests here...
+  include FactoryBot::Syntax::Methods
 end
