@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aelody</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'song', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="http://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <%= javascript_pack_tag 'midi' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

@@ -1,4 +1,6 @@
 class SongsController < ApplicationController
+  layout 'song'
+
   def index
     render locals: {
       songs: Song.all
@@ -7,7 +9,7 @@ class SongsController < ApplicationController
 
   def show
     render locals: {
-      song: Song.find(params[:id] + 23)
+      song: Song.find(params[:id])
     }
   end
 
