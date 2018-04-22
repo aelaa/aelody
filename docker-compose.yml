@@ -4,9 +4,22 @@ services:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
+
+  webpacker:
+    build: .
+    env_file:
+      - '.env.docker'
+    command: ./bin/webpack-dev-server
+    volumes:
+      - .:/srv
+    ports:
+      - '3035:3035'
+
   web:
     build: .
-    command: bash -c "rm -f /srv/tmp/pids/server.pid && rake db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    env_file:
+      - '.env.docker'
+    command: bash -c "sleep 5 && rm -f /srv/tmp/pids/server.pid && rake db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/srv
     ports:

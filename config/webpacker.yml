@@ -14,8 +14,8 @@ default: &default
   cache_manifest: false
 
   extensions:
-    - .jsx
     - .js
+    - .jsx
     - .sass
     - .scss
     - .css

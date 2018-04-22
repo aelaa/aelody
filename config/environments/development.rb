@@ -1,3 +1,6 @@
+require 'socket'
+require 'ipaddr'
+
 Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
     config.webpacker.check_yarn_integrity = true
@@ -7,6 +10,8 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+
+  config.web_console.automount = true
 
   # Do not eager load code on boot.
   config.eager_load = false
@@ -60,4 +65,6 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  config.web_console.whitelisted_ips = %w(127.0.0.1 172.0.0.0/8)
 end

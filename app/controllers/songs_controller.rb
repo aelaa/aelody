@@ -7,7 +7,7 @@ class SongsController < ApplicationController
 
   def show
     render locals: {
-      song: Song.find(params[:id])
+      song: Song.find(params[:id] + 23)
     }
   end
 
